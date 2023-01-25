@@ -1,0 +1,9 @@
+.App{width: 100vw; height: 100vh; display: flex; flex-direction: column;
+  justify-content: center;
+  align-items: center;}
+.App.darck{background-color: rgb(22, 19, 19);color: aliceblue;}
+.App.pink{background-color: rgb(250, 162, 177);}
+.App.light{background-color: wheat;}
+.App.grey{background-color: grey;}
+
+
