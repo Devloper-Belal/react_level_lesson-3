@@ -7,7 +7,7 @@ import { useContext } from "react";
 import DataContext from "./context/Datacontext";
 
 function App() {
-  const { name, changeName,theme,Light,darck,pink,grey,changeCount,count} =
+  const { name, changeName,theme,Light,darck,pink,grey,changeCount,count,Toggle,age,changeAge} =
     useContext(DataContext);
 
   return (
@@ -21,7 +21,7 @@ function App() {
       
             
     <div>
-       <input onClick={()=> theme=="" ? darck() : Light() } type="checkbox" id="toggle_checkbox" />
+       <input onChange={()=> Toggle(theme=="" ? "darck": "" ) } type="checkbox" id="toggle_checkbox" />
       
       
           <label  style={{marginBottom:"20px"}}  htmlFor="toggle_checkbox">
@@ -34,17 +34,17 @@ function App() {
     </div>
       
           <div>
-              <button onClick={()=>  theme=="" ? darck() : Light() }   style={{ marginBottom: "20px" }}>Toggle</button>
+              <button onClick={()=>  Toggle(theme=="" ? "darck": "" ) }   style={{ marginBottom: "20px" }}>Toggle</button>
           </div>
           
      <div>
-          <button onClick={()=> Light()}  style={{ marginRight: "20px" }}>
+          <button onClick={()=> Light("")}  style={{ marginRight: "20px" }}>
             lagit
           </button>
-          <button onClick={()=> darck()}  style={{ marginRight: "20px" }}>
+          <button onClick={()=> darck("darck")}  style={{ marginRight: "20px" }}>
             darck
           </button>
-          <button onClick={()=> grey()}  style={{ marginRight: "20px" }}>
+          <button onClick={()=> grey("grey")}  style={{ marginRight: "20px" }}>
             grey
           </button>
         
@@ -54,8 +54,10 @@ function App() {
 
 
       <h4 style={{ marginTop: "50px" }}>my name is {name}</h4>
-      <button onClick={() => changeName()}>Change Name</button>
-      <button onClick={() =>changeCount() }>count {count}</button>
+      <button onClick={() => changeName("Engineering")}>Change Name</button>
+      <h4 style={{ marginTop: "50px" }}>my age is {age}</h4>
+      <button onClick={() => changeAge(25)}>Change age</button>
+      <button onClick={() =>changeCount(count+1) }>count {count}</button>
       <br />
     </div>
   );

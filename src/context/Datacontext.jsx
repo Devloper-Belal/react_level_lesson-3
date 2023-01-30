@@ -19,30 +19,47 @@ const reducer = (state, action) => {
 };
 export function DataProvider({ children }) {
   const [firstState, dispatch] = useReducer(reducer, initialData);
-  const changeName = () => {
-    dispatch({ type: "CHANGE_NAME", NEW_VALUE: "eng-belalmmm" });
+  const changeName = (theName) => {
+    dispatch({ type: "CHANGE_NAME", NEW_VALUE: theName });
   };
-const Light = () => {
-  dispatch({ type: "NEW_COLOR", NEW_VALUE: "" });
-}
-const darck = () => {
-  dispatch({ type: "NEW_COLOR", NEW_VALUE: "darck" });
-}
-const pink = () => {
-  dispatch({ type: "NEW_COLOR", NEW_VALUE: "pink" });
-}
-const grey = () => {
-  dispatch({ type: "NEW_COLOR", NEW_VALUE: "grey" });
-
-}
-const changeCount = () => {
-  dispatch({ type: "CHANGE_COUNT", NEW_VALUE:initialData.count=initialData.count+1});
-  
-}
+  const changeAge = (theAge) => {
+    dispatch({ type: "CHANGE_AGE", NEW_VALUE: theAge});
+  };
+  const Light = (light) => {
+    dispatch({ type: "NEW_COLOR", NEW_VALUE: light });
+  };
+  const Toggle = (newColor) => {
+    dispatch({ type: "NEW_COLOR", NEW_VALUE: newColor });
+  };
+  const darck = (darck) => {
+    dispatch({ type: "NEW_COLOR", NEW_VALUE: darck });
+  };
+  const pink = (pink) => {
+    dispatch({ type: "NEW_COLOR", NEW_VALUE: pink });
+  };
+  const grey = (grey) => {
+    dispatch({ type: "NEW_COLOR", NEW_VALUE: grey});
+  };
+  const changeCount = (newcount) => {
+    dispatch({
+      type: "CHANGE_COUNT",
+      NEW_VALUE: newcount,
+    });
+  };
 
   return (
     <ThemeContexttt.Provider
-      value={{ ...firstState, changeName , Light ,darck,pink,grey,changeCount}}>
+      value={{
+        ...firstState,
+        changeName,
+        Light,
+        darck,
+        pink,
+        grey,
+        changeCount,
+        Toggle,changeAge
+      }}
+    >
       {children}
     </ThemeContexttt.Provider>
   );
